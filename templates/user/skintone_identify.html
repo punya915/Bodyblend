@@ -1,0 +1,119 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<form action="/myapp/skintone_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table  class="table table-bordered">
+
+    <tr>
+      <td>Pic</td>
+      <td>
+      <input type="file" name="fileField" id="fileField" class="form-control" required /></td>
+    </tr>
+ <tr>
+      <td>GENDER</td>
+      <td><select name="select2" id="select2" required class="form-control">
+          <option>UNISEX</option>
+      <option>MALE</option>
+      <option>FEMALE</option>
+      </select></td>
+    </tr>
+     <tr>
+      <td>BODY TYPE</td>
+      <td><select name="select3" id="select3" required class="form-control">
+          <option>ALL</option>
+          <option>SKINNY</option>
+      <option>MEDIUM</option>
+      <option>CURVY</option>
+      </select></td>
+    </tr>
+      <tr>
+      <td>Occassions</td>
+<td class="checkbox-container">
+    <input type="checkbox" name="occassions"  id="occassions" class="form-control" value="Casuals"/>
+    <label for="checkbox">Casuals</label><br>
+   <input type="checkbox" name="occassions"  id="occassions" class="form-control" value="Formals"/>
+    <label for="checkbox">Formals</label><br>
+     <input type="checkbox" name="occassions"  id="occassions" class="form-control" value="Partywear"/>
+    <label for="checkbox">Partywear</label><br>
+</td>
+  </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+    </tr>
+  </table>
+ <style>
+    .card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+    text-align: center;
+}
+.card-product .img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.label-rating { margin-right:10px;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card-product .price-old {
+    color: #999;
+}
+
+    </style>
+
+
+{% if dresses %}
+
+<div class="row">
+
+      {% for i in dresses %}
+<div class="col-md-4">
+	<figure class="card card-product">
+		<div class="img-wrap"><img src="{{ i.photo }}"></div>
+		<figcaption class="info-wrap">
+				<h4 class="title">{{ i.dname }}</h4>
+				<p class="desc">{{ i.description }}</p>
+				<div class="rating-wrap">
+					<div class="label-rating">{{ i.CATEGORY.catname }}</div>
+					<div class="label-rating">{{ i.skintone }} </div>
+                    					<div class="label-rating">{{ i.bodytype }}</div>
+                    <div class="label-rating">Suitable for {{ i.gender }}</div>
+                    <div class="label-rating">    <a href="/myapp/qty/{{ i.id }}" class="btn btn-info">Add to Cart</a></div>
+{#                    <div class="label-rating">Wearable as {{ i.occasions }}</div>#}
+
+				</div> <!-- rating-wrap.// -->
+		</figcaption>
+{#		<div class="bottom-wrap">#}
+{#				<a href="/myapp/editdress/{{ i.id }}" class="btn btn-sm btn-primary float-left">Update</a> &nbsp;&nbsp;#}
+{#				<a href="/myapp/deletedress/{{ i.id }}" class="btn btn-sm btn-primary float-right">Delete</a>#}
+{##}
+{#		</div> <!-- bottom-wrap.// -->#}
+	</figure>
+</div>
+
+    {% endfor %}<!-- col // -->
+</div> <!-- row.// -->
+
+{% endif %}
+</form>
+{% endblock %}
+{#Cool: If ‘cool’ colors like blue, black, white, purple, etc. compliment you then you have cool undertones.#}
+{#Warm: If peach, yellow, brown, olive and other ‘warm’ colors suit you then you have warm undertones.#}
+{#Neutral: If you think you look good in every and any shade you wear, well then, lucky you! You have a neutral undertone.#}

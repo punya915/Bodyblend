@@ -1,0 +1,21 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/user_addtocart/">
+
+<br>
+<br>
+
+  <table class="table table-bordered">
+    <tr><td align="center">
+     <input type="text" name="tf1" placeholder="Quantity">     </td>
+    </tr>
+
+    <tr>
+
+      <td align="center">     <input type="submit" value="Submt" class="btn btn-info"> </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

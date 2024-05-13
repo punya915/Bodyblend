@@ -1,0 +1,20 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/add_category_post/" method="post">
+    {% csrf_token %}
+<table  class="table table-bordered">
+  <tr>
+    <td width="180px">Category Name</td>
+    <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" class="btn btn-success" name="button" id="button" value="Submit" /></td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}
+<!-- this is the Category table -->

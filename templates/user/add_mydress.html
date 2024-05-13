@@ -1,0 +1,32 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+<form action="/myapp/user_add_dress/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table  class="table table-bordered">
+
+    <tr>
+      <td>Dress photo</td>
+      <td>
+      <input type="file" name="fileField" id="fileField" class="form-control" required /></td>
+    </tr>
+
+    <tr>
+      <td>Type</td>
+      <td>
+        <select name="select" id="select" required class="form-control">
+           <option>Bottom</option>
+            <option>Top</option>
+      </select></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+{#Cool: If ‘cool’ colors like blue, black, white, purple, etc. compliment you then you have cool undertones.#}
+{#Warm: If peach, yellow, brown, olive and other ‘warm’ colors suit you then you have warm undertones.#}
+{#Neutral: If you think you look good in every and any shade you wear, well then, lucky you! You have a neutral undertone.#}

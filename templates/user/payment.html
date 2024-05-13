@@ -1,0 +1,42 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/user_makepayment/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+      <input type="hidden" name="pid" id="textfield5" value="{{ pid }}"/>
+    <tr>
+      <td>Account No</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Account Name</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>IFSC no</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Cvv</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Balance</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" value="{{ tamnt }}" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Payment" class="btn btn-info" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

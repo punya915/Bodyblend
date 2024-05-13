@@ -1,0 +1,17 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form action="/myapp/edit_category_post/" method="post">
+     {% csrf_token %}
+<table class="table table-bordered">
+    <input type="hidden" name="cid" id="cid" value="{{ data.id }}" />
+  <tr>
+    <td width="180px">CATEGORY NAME</td>
+    <td><input type="text" class="form-control" required name="textfield" id="textfield" value="{{ data.catname }}"/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" class="btn btn-success" name="button" id="button" value="Submit" /></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

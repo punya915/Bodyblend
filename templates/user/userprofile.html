@@ -1,0 +1,35 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+
+<form action="/myapp/add_category_post/" method="post">
+
+<table  class="table table-bordered">
+     <tr>
+
+    <td colspan="2" align="center"><img src="{{ data.photo }}" width="150px" height="150px"/></td>
+  </tr>
+  <tr>
+    <td width="180px"> Name</td>
+    <td>{{ data.name }}</td>
+  </tr>
+      <tr>
+    <td width="180px"> Email</td>
+    <td>{{ data.email }}</td>
+  </tr>
+      <tr>
+    <td width="180px"> Phone</td>
+    <td>{{ data.phone }}</td>
+  </tr>
+      <tr>
+    <td width="180px"> Gender</td>
+    <td>{{ data.gender }}</td>
+  </tr>
+  <tr>
+
+    <td colspan="2" align="center"><a href="/myapp/profile_update/" class="btn btn-primary">Update Profile</a> </td>
+  </tr>
+</table>
+</form>
+
+{% endblock %}
